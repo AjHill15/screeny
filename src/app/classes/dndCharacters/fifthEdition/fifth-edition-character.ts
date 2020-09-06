@@ -1,8 +1,5 @@
-import { Character } from '../character';
-import { NumberSymbol } from '@angular/common';
-
-export class Dnd5eCharacter extends Character {
-
+export class FifthEditionCharacter {
+    
     //Details
     alignment:string;
     background:string;
