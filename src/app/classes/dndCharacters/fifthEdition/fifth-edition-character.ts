@@ -1,4 +1,6 @@
-export class FifthEditionCharacter {
+import {Character} from '../../character'
+
+export class FifthEditionCharacter extends Character {
     
     //Details
     alignment:string;

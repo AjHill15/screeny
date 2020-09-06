@@ -6,12 +6,16 @@ import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSliderModule } from '@angular/material/slider';
-import {MatTableModule} from '@angular/material/table'; 
+import {MatTableModule} from '@angular/material/table';
+import { StatModifierPipe } from './pipes/dnd/fifthEdition/stat-modifier.pipe';
+import { ModStringPipe } from './pipes/dnd/fifthEdition/mod-string.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    StatModifierPipe,
+    ModStringPipe
   ],
   imports: [
     BrowserModule,

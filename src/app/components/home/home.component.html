@@ -1,1 +1,45 @@
-<p>home works!</p>
+<h1>Characters</h1>
+<div *ngIf="characters.length; then characterList else emptyList"></div>
+<ng-template #characterList>
+    <mat-table [dataSource]="characters" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Character Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="player">
+            <mat-header-cell *matHeaderCellDef>Player Name</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.player}} </mat-cell>
+        </ng-container>
+        <ng-containter matColumnDef="hp">
+            <mat-header-cell *matHeaderCellDef>HP<br>(temp/current/max)</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.temporaryHitPoints}}/{{element.hitPointsCurrent}}/{{element.hitPointsMax}}</mat-cell>
+        </ng-containter>
+        <ng-container matColumnDef="str">
+            <mat-header-cell *matHeaderCellDef>Strength</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.strengthScore}} / {{element.strengthScore | statModifier | modString}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="dex">
+            <mat-header-cell *matHeaderCellDef>Dexterity</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.dexterityScore}} / {{element.dexterityScore | statModifier | modString}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="con">
+            <mat-header-cell *matHeaderCellDef>Constitution</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.constitutionScore}} / {{element.constitutionScore | statModifier | modString}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="int">
+            <mat-header-cell *matHeaderCellDef>Intelligence</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.intelligenceScore}} / {{element.intelligenceScore | statModifier | modString}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="wis">
+            <mat-header-cell *matHeaderCellDef>Wisdom</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.wisdomScore}} / {{element.wisdomScore | statModifier | modString}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="cha">
+            <mat-header-cell *matHeaderCellDef>Charisma</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.charismaScore}} / {{element.charismaScore | statModifier | modString}}</mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+</ng-template>
+<ng-template #emptyList>No characters yet, why not add one?</ng-template>
