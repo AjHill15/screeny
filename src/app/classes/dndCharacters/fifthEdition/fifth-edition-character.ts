@@ -2,6 +2,11 @@ import {Character} from '../../character'
 
 export class FifthEditionCharacter extends Character {
     
+    constructor()
+    {
+        super();
+    }
+
     //Details
     alignment:string;
     background:string;

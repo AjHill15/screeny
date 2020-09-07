@@ -1,4 +1,9 @@
 export class Character {
-    name:string;
-    player:string;
+    constructor() {
+
+    }
+
+    name: string;
+    player: string;
+
 }
